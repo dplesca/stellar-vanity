@@ -17,11 +17,11 @@ A small note for searching a string on the start of the address. The first two l
 > the first byte (8 bits) that is encoded contains the type of the string. A public key has prefix "G" for example.  
 > when converting into base32 the data is consumed 5 bits at a time, so the first 5 bits of the 8 bits version end up being the first character. The second character is therefore the remaining 3 bits from the version byte (but they are all 0s), plus the first 2 bits of the actual data. 2 bits of data give you the characters A through D.
 
-This vanity address finder will search for the requested string _as soon as it can_, meaning that if your text starts with *GA* it will look for a match right at the start of the address, but if your text starts with *B* it will look for a match starting from the second character of the address and, finally, if your text starts with *Q* it will look for a match starting from the third.
+This vanity address finder will search for the requested string _as soon as it can_, meaning that if your text starts with **GA** it will look for a match right at the start of the address, but if your text starts with **B** it will look for a match starting from the second character of the address and, finally, if your text starts with **Q** it will look for a match starting from the third.
 
 #### Enough talk, show me results
 
-Before showing I must note that this a process based on random. This means that you can find a 5 character text in a few seconds (that actually happened during testing), but it also means that it can take 12h to find a 6 characters text (also happened during testing). Also, searching at start/end might be way more time consuming. All examples below are being generated on the $5 Linode VPS.
+Before showing results I must note that this a process based on random. This means that you can find a 5 character text in a few seconds (that actually happened during testing), but it also means that it can take 12h to find a 6 characters text (also happened during testing). Also, searching at start/end might be way more time consuming. All examples below are being generated on the $5 Linode VPS.
 
  - **Simple example**  
 ![Imgur](https://i.imgur.com/mcgpfXw.png)
