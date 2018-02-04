@@ -41,8 +41,8 @@ func main() {
 	}
 
 	RootCmd.PersistentFlags().StringVarP(&position, "position", "p", "anywhere", "position of searched text in the address: anywhere, start, end")
-	RootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output that add the number or pairs searched")
-	RootCmd.PersistentFlags().BoolVarP(&writeToFile, "writetofile", "f", false, "flag for writing resutls into a file")
+	RootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output that adds a bit of extra info, like the number or pairs searched")
+	RootCmd.PersistentFlags().BoolVarP(&writeToFile, "writetofile", "f", false, "flag for writing resulted address/seed pair into a file")
 	RootCmd.Execute()
 
 }
@@ -127,7 +127,7 @@ func writeFinalMessage(pair *keypair.Full, index int64, u string) {
 		fmt.Printf("\rChecked a total %s pairs in %s\n", humanize.Comma(index), d)
 	}
 	c := strings.Split(pair.Address(), u)
-	fmt.Printf("\nSearch sucessful! Results:\n\nAddress: %s%s%s\nSeed:\t %s", c[0], aurora.Green(u), c[1], pair.Seed())
+	fmt.Printf("\nSearch successful! Results:\n\nAddress: %s%s%s\nSeed:\t %s", c[0], aurora.Green(u), c[1], pair.Seed())
 
 	if writeToFile == true {
 		f, err := os.OpenFile("result.txt", os.O_CREATE, 0666)
