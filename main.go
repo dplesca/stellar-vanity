@@ -127,7 +127,7 @@ func writeFinalMessage(pair *keypair.Full, index int64, u string) {
 		fmt.Printf("\rChecked a total %s pairs in %s\n", humanize.Comma(index), d)
 	}
 	c := strings.Split(pair.Address(), u)
-	fmt.Printf("\nSearch successful! Results:\n\nAddress: %s%s%s\nSeed:\t %s", c[0], aurora.Green(u), c[1], pair.Seed())
+	fmt.Printf("\nSearch successful! Results:\n\nAddress: %s%s%s\nSeed:\t %s\n", c[0], aurora.Green(u), c[1], pair.Seed())
 
 	if writeToFile == true {
 		f, err := os.OpenFile("result.txt", os.O_CREATE, 0666)
