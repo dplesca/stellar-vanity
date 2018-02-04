@@ -1,3 +1,4 @@
 result.txt
 stellar-*
 .goreleaser.yml
+dist/
