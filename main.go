@@ -130,7 +130,7 @@ func writeFinalMessage(pair *keypair.Full, index int64, u string) {
 	fmt.Printf("\nSearch successful! Results:\n\nAddress: %s%s%s\nSeed:\t %s\n", c[0], aurora.Green(u), c[1], pair.Seed())
 
 	if writeToFile == true {
-		f, err := os.OpenFile("result.txt", os.O_CREATE, 0666)
+		f, err := os.OpenFile("result.txt", os.O_CREATE|os.O_WRONLY, 0666)
 		if err != nil {
 			log.Fatalf("error opening file: %v", err)
 		}
