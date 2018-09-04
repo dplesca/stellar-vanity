@@ -20,6 +20,11 @@ import (
 
 const maxConcurrency = 10
 
+const txtTemplate = `
+Address: {{.Address}}
+Seed:    {{.Seed}}
+`
+
 var positions = []string{
 	"anywhere",
 	"end",
@@ -136,10 +141,7 @@ func writeFinalMessage(pair *keypair.Full, index int64, u string) {
 		}
 		defer f.Close()
 
-		t := template.Must(template.New("t2").Parse(`
-Address: {{.Address}}
-Seed:    {{.Seed}}
-`))
+		t := template.Must(template.New("t2").Parse(txtTemplate))
 
 		if err := t.Execute(f, struct{ Address, Seed string }{pair.Address(), pair.Seed()}); err != nil {
 			log.Fatal(err)
